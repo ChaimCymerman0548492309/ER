@@ -31,14 +31,20 @@ export class ItemController {
       RoomsAvailable = checkRoomsAvailable.freeRooms;
       // if (RoomsAvailable > 0) {
       const patientAssignment = await this.repo.adimidPatient(
-        this.PatientQueue[0] 
+        this.PatientQueue[0]
       );
-      if (!patientAssignment || patientAssignment.patientID !== req.body.patientID ) {
-
-        return res.status(404).json({ error: "No available treatment rooms Patient is in the queue" });
+      if (
+        !patientAssignment ||
+        patientAssignment.patientID !== req.body.patientID
+      ) {
+        return res
+          .status(404)
+          .json({
+            error: "No available treatment rooms Patient is in the queue",
+          });
       }
       this.PatientQueue.splice(0, 1);
-      
+
       res.status(201).json(patientAssignment);
       // }
       // }
@@ -68,13 +74,17 @@ export class ItemController {
       let low = 0;
       let medium = 0;
       let high = 0;
+      console.log(
+        "🚀 ~ ItemController ~ this.PatientQueue:",
+        this.PatientQueue
+      );
 
       this.PatientQueue.forEach((patient) => {
         console.log("🚀 ~ ItemController ~ patient:", patient);
-        // const urgency = Math.max(patient.symptoms);
-        // if (urgency === 1) low += 1;
-        // else if (urgency === 2) medium += 1;
-        // else if (urgency >= 3) high += 1;
+        const urgency = Math.max(...(patient.symptoms as number[]));
+        if (urgency === 1) low += 1;
+        else if (urgency === 2) medium += 1;
+        else if (urgency >= 3) high += 1;
       });
       const queeStatus = { low, medium, high };
       if (!queeStatus)
