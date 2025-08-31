@@ -2,6 +2,21 @@
 
 ## The goal is to manage a Emergency room efficiently and effectively.  we are not taking care of the user detals and editem them.
 
+---
+
+## ⚙️ **Installation Guide (Local Setup)**
+
+```bash
+git clone https://github.com/ChaimCymerman0548492309/ER
+cd app
+
+# Install dependencies
+npm install
+
+npm run dev
+```
+
+---
 
 
 # HLD :
@@ -72,6 +87,9 @@ __And every call from the client should have a JWT cookie.__
 __There is a limit on the number of API call's from each IP address to a maximum of 10 every 60 seconds.__
 
 __The reason I used MongoDB is mainly because of the flexibility .__
+
+__Currently all the information is written into a JSON file. Later I will write the information into the MONGODB schema .__
+
 
 ## Tests
 |   | | TestType|
