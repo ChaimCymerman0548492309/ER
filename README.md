@@ -9,8 +9,32 @@
 ![This is an alt text.](./HLDdiagram.png)
 <!-- ###### This is a Heading h6 -->
 
-## API's
 
+## TYP'S
+```
+SymptomsCode : number[]
+
+ Patient {
+    patientID  :string ,
+    name :string
+    age : number ,
+    symptoms : SymptomsCode[]
+    arrivalTime : Date ,
+    urgency  : "LOW" | "MEDIUM" | "HIGH" | "CRITICAL"
+ }
+
+treatmentRoom {
+    roomId : string ,
+    isAvailable : boolean ,
+    currentpatient? : Patient
+}
+
+PatientAssignment {
+    roomId : string ,
+     patientID  :string
+}
+```
+## API's
 | Method | Endpoint      | Body                    | Response                |
 | ------------- |:-------------:| -- | -- | 
 |POST |/adimidPatient  |  {patient :Patient} | {patientAssignment : PatientAssignment}     |
