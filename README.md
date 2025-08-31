@@ -16,6 +16,12 @@ npm install
 npm run dev
 ```
 
+
+__The reception works so that if the patient's condition is classified as serious or worse, he goes straight to the treatment room and the staff receives an alert.__
+
+__The remaining patients wait in a queue in the order they arrived at HR.__
+
+
 ---
 
 
