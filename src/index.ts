@@ -26,35 +26,6 @@ const floors = [
     ],
   },
 ];
-const allocator = new Allocator(floors);
-
-app.post("/allocate", (req, res) => {
-  const { CarId, kind } = req.body as { CarId: string; kind: VehicleKind };
-  if (!CarId || !kind) return res.status(400).json({ error: "Missing id or kind" });
-
-  const resource: Car = { CarId, kind };
-  // registerResource(resource);
-
-  const result = allocator.allocate(resource);
-  if (result) res.json({ status: "ok", location: result });
-  else res.json({ status: "no_capacity" });
-});
-
-app.post("/release", (req, res) => {
-  const { id ,CarId } = req.body as { id: string ; CarId: string };
-  if (!id || !CarId) return res.status(400).json({ error: "Missing id" });
-
-  const success = allocator.release(id ,CarId );
-  res.json({ status: success ? "ok" : "not_found" });
-});
-
-app.get("/stats", (req, res) => {
-  const stats = allocator.stats();
-  res.json(stats);
-});
-
-app.get("/isFull", (req, res) => res.json({ isFull: allocator.isFull() }));
-app.get("/isEmpty", (req, res) => res.json({ isEmpty: allocator.isEmpty() }));
 
 app.use("/items", router);
 
