@@ -2,14 +2,18 @@ export interface SymptomsCode {
   SymptomsCode : number[]
 }
 
+export enum SymptomCode {
+  "Low" = 1, "Medium"  = 2, "High" = 3 , "Critical" = 4,
+}
 
 export interface Patient {
+  push(patient: Patient): unknown;
  patientID  :string ,
     name :string
     age : number ,
-    symptoms : SymptomsCode[]
+    symptoms : number[]
     arrivalTime : Date ,
-    urgency  : "LOW" | "MEDIUM" | "HIGH" | "CRITICAL"
+    urgency  : "LOW" | "MEDIUM" | "HIGH" | "CRITICAL" | number
 
 }
 export interface TreatmentRoom {

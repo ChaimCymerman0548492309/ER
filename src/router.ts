@@ -10,6 +10,9 @@ const router = Router();
 
 
 router.post("/adimidPatient", controller.adimidPatient);
+router.post("/dischargPatient", controller.dischargPatient);
+router.get("/getQueeStatus", controller.getQueeStatus);
+router.get("/getRoomStatus", controller.getRoomStatus);
 // router.post("/", controller.create);
 // router.get("/", controller.getAll);
 // router.get("/:id", controller.getById);

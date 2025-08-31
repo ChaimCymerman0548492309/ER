@@ -1,6 +1,16 @@
 [
   {
     "roomId": "1",
-    "isAvailable": true
+    "isAvailable": false,
+    "currentpatient": {
+      "patientID": "12345",
+      "name": "John Doe",
+      "age": 55,
+      "symptoms": [
+        1
+      ],
+      "arrivalTime": "2025-08-31T12:34:56.000Z",
+      "urgency": "LOW"
+    }
   }
 ]

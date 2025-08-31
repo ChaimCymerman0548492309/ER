@@ -31,7 +31,6 @@ export class JsonRepository
     const all = await this.load();
     const index = all.findIndex((i) => i.isAvailable );
     if (index === -1) return null;
-
     all[index] = {
       ...all[index],
       isAvailable : false ,
@@ -44,9 +43,11 @@ export class JsonRepository
    async dischargPatient(
     patientID: string
   ): Promise<boolean | null | undefined> {
+    console.log("🚀 ~ JsonRepository ~ dischargPatient ~ patientID:", patientID)
    
         const all = await this.load();
         const index = all.findIndex((i) => i.currentpatient?.patientID === patientID);
+        console.log("🚀 ~ JsonRepository ~ dischargPatient ~ index:", index)
         if (index === -1) return null;
       
       all[index] = {
